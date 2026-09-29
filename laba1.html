@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лаба 1 </title>
+  <meta name="description" content="Учебная страница с примерами гиперссылок и HTML-формой.">
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Лаба 1</h1>
+  </header>
+
+  <main>
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Маркированный список гиперссылок</h2>
+      <ul>
+        <li><a href="http://kubsu.ru/">Главная страница КубГУ </a></li>
+        <li><a href="https://kubsu.ru/">Главная страница КубГУ </a></li>
+        <li><a href="https://kubsu.ru/" aria-label="КубГУ — ссылка-изображение"><img src="i.webp" alt="Логотип КубГУ" width="180"></a></li>
+        <li><a href="/about/">Сокращённая ссылка на внутреннюю страницу</a></li>
+        <li><a href="/">Сокращённая ссылка на главную страницу</a></li>
+        <li><a href="#form">Перейти к форме на этой странице</a></li>
+        <li><a href="https://example.com/search?name=Ivan&category=books&page=2">Ссылка с тремя параметрами URL</a></li>
+        <li><a href="https://example.com/item?id=123">Ссылка с параметром id</a></li>
+        <li><a href="./page.html">Относительная ссылка на страницу текущего каталога</a></li>
+        <li><a href="./about/page.html">Относительная ссылка на страницу в каталоге about</a></li>
+        <li><a href="../page.html">Относительная ссылка на каталог уровнем выше</a></li>
+        <li><a href="../../page.html">Относительная ссылка на каталог двумя уровнями выше</a></li>
+        <li><p>Это пример контекстной ссылки в тексте абзаца: подробнее можно прочитать на <a href="https://kubsu.ru/">официальном сайте КубГУ</a>.</p></li>
+        <li><a href="https://ru.wikipedia.org/wiki/HTML#История">Ссылка на фрагмент страницы стороннего сайта (раздел «История»)</a></li>
+        <li>
+          <span>Ссылки из прямоугольной и круглой областей изображения (HTML map):</span><br>
+          <img class="map-image" src="https://placehold.co/420x180/e8f0fa/173b67.png?text=Rectangle+%7C+Circle" alt="Изображение с прямоугольной и круглой активными областями" width="420" height="180" usemap="#image-links">
+          <map name="image-links">
+            <area shape="rect" coords="0,0,210,180" href="https://kubsu.ru/" alt="Прямоугольная область — сайт КубГУ">
+            <area shape="circle" coords="315,90,75" href="https://example.com/" alt="Круглая область — Example">
+          </map>
+        </li>
+        <li><a href="">Ссылка с пустым href</a></li>
+        <li><a>Ссылка без атрибута href</a></li>
+        <li><a href="https://example.com/" rel="nofollow">Ссылка, по которой поисковикам предлагается не переходить (rel="nofollow")</a></li>
+        <li><span>Страница запрещена для индексации директивой meta robots noindex в head.</span></li>
+        <li>
+          Нумерованный список ссылок с подсказками title:
+          <ol>
+            <li><a href="https://kubsu.ru/" title="Официальный сайт КубГУ">КубГУ</a></li>
+            <li><a href="https://www.w3.org/" title="Консорциум Всемирной паутины">W3C</a></li>
+            <li><a href="https://developer.mozilla.org/ru/" title="Документация по веб-технологиям">MDN</a></li>
+          </ol>
+        </li>
+        <li><a href="ftp://username:password@ftp.example.com/pub/file.zip">пример FTP-ссылки с авторизацией</a></li>
+      </ul>
+    </section>
+
+    <section id="form" aria-labelledby="form-heading">
+      <h2 id="form-heading">Форма</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Личные данные</legend>
+          <label class="field" for="fullname">ФИО:
+            <input type="text" id="fullname" name="fullname" autocomplete="name" required>
+          </label>
+          <label class="field" for="phone">Телефон:
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field" for="email">E-mail:
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </label>
+          <label class="field" for="birthdate">Дата рождения:
+            <input type="date" id="birthdate" name="birthdate" required>
+          </label>
+          <span>Пол:</span><br>
+          <label><input type="radio" name="gender" value="male" required> Мужской</label>
+          <label><input type="radio" name="gender" value="female"> Женский</label>
+          <label><input type="radio" name="gender" value="other"> не указывать</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Дополнительная информация</legend>
+          <label class="field" for="languages">Любимые языки программирования (можно выбрать несколько):</label>
+          <select id="languages" name="languages[]" multiple size="11">
+            <option value="Pascal">Pascal</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="Haskel">Haskel</option>
+            <option value="Clojure">Clojure</option>
+            <option value="Prolog">Prolog</option>
+            <option value="Scala">Scala</option>
+          </select>
+          <label class="field" for="bio">Биография:</label>
+          <textarea id="bio" name="bio" rows="5" cols="50" placeholder="Расскажите о себе..."></textarea>
+          <label class="field"><input type="checkbox" name="contract" value="accepted" required> С контрактом ознакомлен(а)</label>
+        </fieldset>
+        <button type="submit">Сохранить</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Учебная работа по HTML5.</p>
+  </footer>
+</body>
+</html>
