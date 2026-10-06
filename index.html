@@ -58,49 +58,251 @@
 
     <section id="form" aria-labelledby="form-heading">
       <h2 id="form-heading">Форма</h2>
-      <form action="#" method="post">
-        <fieldset>
-          <legend>Личные данные</legend>
-          <label class="field" for="fullname">ФИО:
-            <input type="text" id="fullname" name="fullname" autocomplete="name" required>
-          </label>
-          <label class="field" for="phone">Телефон:
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00" required>
-          </label>
-          <label class="field" for="email">E-mail:
-            <input type="email" id="email" name="email" autocomplete="email" required>
-          </label>
-          <label class="field" for="birthdate">Дата рождения:
-            <input type="date" id="birthdate" name="birthdate" required>
-          </label>
-          <span>Пол:</span><br>
-          <label><input type="radio" name="gender" value="male" required> Мужской</label>
-          <label><input type="radio" name="gender" value="female"> Женский</label>
-          <label><input type="radio" name="gender" value="other"> не указывать</label>
-        </fieldset>
+      <form
+            id="myForm"
+            class="col-12 order-3"
+        >
 
-        <fieldset>
-          <legend>Дополнительная информация</legend>
-          <label class="field" for="languages">Любимые языки программирования (можно выбрать несколько):</label>
-          <select id="languages" name="languages[]" multiple size="11">
-            <option value="Pascal">Pascal</option>
-            <option value="C">C</option>
-            <option value="C++">C++</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="PHP">PHP</option>
-            <option value="Python">Python</option>
-            <option value="Java">Java</option>
-            <option value="Haskel">Haskel</option>
-            <option value="Clojure">Clojure</option>
-            <option value="Prolog">Prolog</option>
-            <option value="Scala">Scala</option>
-          </select>
-          <label class="field" for="bio">Биография:</label>
-          <textarea id="bio" name="bio" rows="5" cols="50" placeholder="Расскажите о себе..."></textarea>
-          <label class="field"><input type="checkbox" name="contract" value="accepted" required> С контрактом ознакомлен(а)</label>
-        </fieldset>
-        <button type="submit">Сохранить</button>
-      </form>
+            <p>
+                <label for="fio">
+                    ФИО:
+                </label>
+
+                <input
+                    type="text"
+                    id="fio"
+                    name="fio"
+                    placeholder="Иванов Иван Иванович"
+                    required
+                    pattern="[А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)? [А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)? [А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)?"
+                    title="Введите фамилию, имя и отчество. Например: Иванов Иван Иванович"
+                >
+            </p>
+
+
+            <p>
+                <label for="tel">
+                    Телефон:
+                </label>
+
+                <input
+                    type="tel"
+                    id="tel"
+                    name="tel"
+                    placeholder="+79001234567"
+                    required
+                    inputmode="numeric"
+                    pattern="(?:\+7|8)[0-9]{10}"
+                    title="Введите номер в формате +79001234567 или 89001234567"
+                >
+            </p>
+
+
+            <p>
+                <label for="email">
+                    E-mail:
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@mail.ru"
+                    required
+                >
+            </p>
+
+
+            <p>
+                <label for="birthdate">
+                    Дата рождения:
+                </label>
+
+                <input
+                    type="date"
+                    id="birthdate"
+                    name="birthdate"
+                    required
+                >
+            </p>
+
+
+            <fieldset>
+
+                <legend>
+                    Пол
+                </legend>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        required
+                    >
+                    Мужской
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="female"
+                    >
+                    Женский
+                </label>
+
+            </fieldset>
+
+
+            <fieldset>
+
+                <legend>
+                    Любимый язык программирования
+                </legend>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Pascal"
+                        required
+                    >
+                    Pascal
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="C"
+                    >
+                    C
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="C++"
+                    >
+                    C++
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="JavaScript"
+                    >
+                    JavaScript
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="PHP"
+                    >
+                    PHP
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Python"
+                    >
+                    Python
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Java"
+                    >
+                    Java
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Haskell"
+                    >
+                    Haskell
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Clojure"
+                    >
+                    Clojure
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Prolog"
+                    >
+                    Prolog
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="language"
+                        value="Scala"
+                    >
+                    Scala
+                </label>
+
+            </fieldset>
+
+
+            <div class="biography-field">
+
+                <label for="biography">
+                    Биография:
+                </label>
+
+                <textarea
+                    id="biography"
+                    name="biography"
+                    placeholder="Введите информацию о себе..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <p>
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        name="agreement"
+                        required
+                    >
+
+                    С сайтом ознакомлен(а)
+
+                </label>
+
+            </p>
+
+
+            <button type="submit">
+                Сохранить
+            </button>
+
+        </form>
+  
     </section>
   </main>
 
