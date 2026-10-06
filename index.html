@@ -33,13 +33,38 @@
         <li><p>Это пример контекстной ссылки в тексте абзаца: подробнее можно прочитать на <a href="https://kubsu.ru/">официальном сайте КубГУ</a>.</p></li>
         <li><a href="https://ru.wikipedia.org/wiki/HTML#История">Ссылка на фрагмент страницы стороннего сайта (раздел «История»)</a></li>
         <li>
-          <span>Ссылки из прямоугольной и круглой областей изображения (HTML map):</span><br>
-          <img class="map-image" src="https://placehold.co/420x180/e8f0fa/173b67.png?text=Rectangle+%7C+Circle" alt="Изображение с прямоугольной и круглой активными областями" width="420" height="180" usemap="#image-links">
-          <map name="image-links">
-            <area shape="rect" coords="0,0,210,180" href="https://kubsu.ru/" alt="Прямоугольная область — сайт КубГУ">
-            <area shape="circle" coords="315,90,75" href="https://example.com/" alt="Круглая область — Example">
-          </map>
-        </li>
+
+                    <p>
+                        Карта ссылок КубГУ:
+                        прямоугольник — главная,
+                        круг — абитуриенты.
+                    </p>
+
+                    <div class="image-map">
+
+                        <a
+                            href="https://www.kubsu.ru/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src="IMAGES/map.jpg"
+                                alt="Карта ссылок КубГУ"
+                            >
+                        </a>
+
+                        <a
+                            class="applicant-link"
+                            href="https://kubsu.ru/ru/abiturient"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Страница для абитуриентов"
+                            aria-label="Страница для абитуриентов"
+                        ></a>
+
+                    </div>
+
+                </li>
         <li><a href="">Ссылка с пустым href</a></li>
         <li><a>Ссылка без атрибута href</a></li>
         <li><a href="https://example.com/" rel="nofollow">Ссылка, по которой поисковикам предлагается не переходить (rel="nofollow")</a></li>
