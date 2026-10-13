@@ -172,35 +172,34 @@
                         прямоугольник — главная,
                         круг — абитуриенты.
                     </p>
+          <div class="image-map">
+            <img
+              src="i.webp.jpg"
+              alt="Карта ссылок КубГУ"
+              width="300"
+              usemap="#kubsu-map"
+              >
 
-<div class="image-map">
-<img
-src="i.webp.jpg"
-alt="Карта ссылок КубГУ"
-width="300"
-usemap="#kubsu-map"
->
+            <map name="kubsu-map">
+              <!-- Прямоугольная область — главная страница -->
+              <area
+                shape="rect"
+                coords="10,10,150,100"
+                href="https://www.kubsu.ru/"
+                alt="Главная страница КубГУ"
+                target="_blank"
+                >
 
-<map name="kubsu-map">
-<!-- Прямоугольная область — главная страница -->
-<area
-shape="rect"
-coords="10,10,150,100"
-href="https://www.kubsu.ru/"
-alt="Главная страница КубГУ"
-target="_blank"
->
-
-<!-- Круглая область — страница абитуриентов -->
-<area
-shape="circle"
-coords="220,150,40"
-href="https://kubsu.ru/ru/abiturient"
-alt="Страница для абитуриентов"
-target="_blank"
->
-</map>
-</div>
+              <!-- Круглая область — страница абитуриентов -->
+              <area
+                shape="circle"
+                coords="220,150,40"
+                href="https://kubsu.ru/ru/abiturient"
+                alt="Страница для абитуриентов"
+                target="_blank"
+                >
+            </map>
+          </div>
 
                 </li>
         <li><a href="">Ссылка с пустым href</a></li>
