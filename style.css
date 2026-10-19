@@ -1,0 +1,124 @@
+/* Задание 3: адаптивная вёрстка (Mobile First), Flexbox и Media Query */
+
+/* Базовые правила рассчитаны на мобильные устройства */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  margin: 0;
+}
+
+header,
+.site-menu,
+main,
+.site-footer {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* На телефонах меню располагается вертикально */
+.site-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.site-menu li {
+  min-width: 0;
+}
+
+.site-menu a {
+  text-align: center;
+}
+
+/* Не допускаем выхода широких элементов за экран */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-table {
+  min-width: 460px;
+}
+
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea {
+  width: 100%;
+}
+
+/* Mobile First: на небольшом экране таблица находится выше списка ссылок */
+#table-section {
+  order: 1;
+}
+
+main > section[aria-labelledby="links-heading"] {
+  order: 2;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#form {
+  order: 3;
+}
+
+/* Планшеты и компьютеры */
+@media (min-width: 601px) {
+  main {
+    gap: 1.5rem;
+  }
+
+  .site-menu ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* На широком экране сначала список ссылок, затем таблица */
+  main > section[aria-labelledby="links-heading"] {
+    order: 1;
+  }
+
+  #table-section {
+    order: 2;
+  }
+
+  #form {
+    order: 3;
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    align-items: stretch;
+  }
+}
