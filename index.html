@@ -120,6 +120,16 @@
   .site-footer p { margin: 5px 0; }
   .site-footer .container { max-width: 960px; margin: 0 auto; }
   /* На компьютере меню располагается над шапкой; мобильная версия не меняется */
+  /* Задания 2 и 3: порядок разделов на компьютере — ссылки, таблица, форма. */
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  main > section[aria-labelledby="links-heading"] { order: 1; }
+  #table-section { order: 2; }
+  #form { order: 3; }
+
   @media (min-width: 601px) {
     body {
       display: flex;
@@ -129,6 +139,12 @@
     header { order: 2; }
     main { order: 3; width: 100%; box-sizing: border-box; }
     .site-footer { order: 4; }
+  }
+  /* Задание 3: на смартфонах таблица должна быть выше списка ссылок. */
+  @media (max-width: 600px) {
+    #table-section { order: 1; }
+    main > section[aria-labelledby="links-heading"] { order: 2; }
+    #form { order: 3; }
   }
   @media (max-width: 600px) {
     header { padding: 18px 12px; }
