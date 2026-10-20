@@ -30,29 +30,6 @@
     border-bottom: 5px solid #9caf78;
   }
   header h1 { margin: 0; }
-  /* Логотип и название сайта в шапке */
-  .header-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-  }
-  .site-logo {
-    display: block;
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-  .site-title { text-align: left; }
-  .site-menu .container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
   .site-menu {
     background: #e4ebd6;
     border-bottom: 1px solid #9caf78;
@@ -80,7 +57,7 @@
     color: #fff8e8;
   }
   main {
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -118,24 +95,10 @@
     border-top: 5px solid #9caf78;
   }
   .site-footer p { margin: 5px 0; }
-  .site-footer .container { max-width: 960px; margin: 0 auto; }
-  /* На компьютере меню располагается над шапкой; мобильная версия не меняется */
-  @media (min-width: 601px) {
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    .site-menu { order: 1; }
-    header { order: 2; }
-    main { order: 3; width: 100%; box-sizing: border-box; }
-    .site-footer { order: 4; }
-  }
+  .site-footer .container { max-width: 1100px; margin: 0 auto; }
   @media (max-width: 600px) {
     header { padding: 18px 12px; }
-    .header-inner { gap: 12px; justify-content: flex-start; }
-    .site-logo { width: 72px; height: 72px; }
-    header h1 { font-size: 1.25rem; }
-    .site-title { text-align: left; }
+    header h1 { font-size: 1.5rem; }
     main { padding: 14px; }
     .site-menu ul { align-items: stretch; flex-direction: column; gap: 2px; }
     .site-menu a { text-align: center; }
@@ -144,25 +107,16 @@
 </head>
 <body>
   <header id="top">
-    <div class="header-inner">
-      <a href="#top" aria-label="На главную">
-        <img class="site-logo" src="logo.jpeg" alt="Логотип сайта Spicy">
-      </a>
-      <div class="site-title">
-        <h1>Spicy</h1>
-      </div>
-    </div>
+    <h1>Лабораторная работа</h1>
   </header>
 
   <nav class="site-menu" aria-label="Основное меню">
-    <div class="container">
-      <ul>
-        <li><a href="#top">Главная</a></li>
-        <li><a href="#table-section">Таблица</a></li>
-        <li><a href="#links-heading">Ссылки</a></li>
-        <li><a href="#form">Форма</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="#top">Главная</a></li>
+      <li><a href="#table-section">Таблица</a></li>
+      <li><a href="#links-heading">Ссылки</a></li>
+      <li><a href="#form">Форма</a></li>
+    </ul>
   </nav>
 
   <main>
@@ -218,33 +172,15 @@
                         прямоугольник — главная,
                         круг — абитуриенты.
                     </p>
-          <div class="image-map">
-            <img
-              src="i.webp.jpg"
-              alt="Карта ссылок КубГУ"
-              width="300"
-              usemap="#kubsu-map"
-              >
-
-            <map name="kubsu-map">
-              <!-- Прямоугольная область — главная страница -->
-              <area
-                shape="rect"
-                coords="0,0,80,80"
-                href="https://www.kubsu.ru/"
-                alt="Главная страница КубГУ"
-                target="_blank"
-                >
-
-              <!-- Круглая область — страница абитуриентов -->
-              <area
-                shape="circle"
-                coords="150,150,50"
-                href="https://www.kubsu.ru/ru/abiturient"
-                alt="Страница для абитуриентов"
-                target="_blank"
-                >
-            </map>
+          <div class="image-map" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:12px;">
+            <!-- Прямоугольная ссылка: главная страница КубГУ -->
+            <a href="https://www.kubsu.ru/" target="_blank" rel="noopener noreferrer" aria-label="Главная страница КубГУ" style="display:inline-block; line-height:0; max-width:100%;">
+              <img src="rectangle-link.jpeg" alt="Прямоугольная ссылка — главная страница КубГУ" style="display:block; width: min(220px, 100%); height:auto;">
+            </a>
+            <!-- Круглая ссылка: страница абитуриентов -->
+            <a href="https://www.kubsu.ru/ru/abiturient" target="_blank" rel="noopener noreferrer" aria-label="Страница для абитуриентов" style="display:inline-block; width: min(180px, 100%); aspect-ratio:1 / 1; border-radius:50%; overflow:hidden; line-height:0;">
+              <img src="circle-link.jpeg" alt="Круглая ссылка — страница абитуриентов" style="display:block; width:100%; height:100%; object-fit:cover;">
+            </a>
           </div>
 
                 </li>
