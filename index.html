@@ -30,6 +30,29 @@
     border-bottom: 5px solid #9caf78;
   }
   header h1 { margin: 0; }
+  /* Логотип и название сайта в шапке */
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .site-logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .site-title { text-align: left; }
+  .site-menu .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
   .site-menu {
     background: #e4ebd6;
     border-bottom: 1px solid #9caf78;
@@ -57,7 +80,7 @@
     color: #fff8e8;
   }
   main {
-    max-width: 1100px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -95,29 +118,40 @@
     border-top: 5px solid #9caf78;
   }
   .site-footer p { margin: 5px 0; }
-  .site-footer .container { max-width: 1100px; margin: 0 auto; }
+  .site-footer .container { max-width: 960px; margin: 0 auto; }
   @media (max-width: 600px) {
     header { padding: 18px 12px; }
-    header h1 { font-size: 1.5rem; }
+    .header-inner { gap: 12px; justify-content: flex-start; }
+    .site-logo { width: 72px; height: 72px; }
+    header h1 { font-size: 1.25rem; }
+    .site-title { text-align: left; }
     main { padding: 14px; }
     .site-menu ul { align-items: stretch; flex-direction: column; gap: 2px; }
     .site-menu a { text-align: center; }
   }
   </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header id="top">
-    <h1>Лабораторная работа</h1>
+    <div class="header-inner">
+      <a href="#top" aria-label="На главную">
+        <img class="site-logo" src="logo.jpeg" alt="Логотип сайта Spicy">
+      </a>
+      <div class="site-title">
+        <h1>Spicy</h1>
+      </div>
+    </div>
   </header>
 
   <nav class="site-menu" aria-label="Основное меню">
-    <ul>
-      <li><a href="#top">Главная</a></li>
-      <li><a href="#table-section">Таблица</a></li>
-      <li><a href="#links-heading">Ссылки</a></li>
-      <li><a href="#form">Форма</a></li>
-    </ul>
+    <div class="container">
+      <ul>
+        <li><a href="#top">Главная</a></li>
+        <li><a href="#table-section">Таблица</a></li>
+        <li><a href="#links-heading">Ссылки</a></li>
+        <li><a href="#form">Форма</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
