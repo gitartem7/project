@@ -1,18 +1,21 @@
-/* Задание 3: адаптивная вёрстка (Mobile First), Flexbox и Media Query */
+/* Задание 3. Дополнительные стили адаптивной вёрстки.
+   Исходная HTML-разметка и существующие стили сохранены.
+   Mobile First: базовые правила предназначены для смартфонов. */
 
-/* Базовые правила рассчитаны на мобильные устройства */
 * {
   box-sizing: border-box;
 }
 
 html {
+  max-width: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
-  min-width: 320px;
+  min-width: 0;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 header,
@@ -20,15 +23,21 @@ header,
 main,
 .site-footer {
   width: 100%;
+  min-width: 0;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  min-width: 0;
 }
 
-/* На телефонах меню располагается вертикально */
+main > section {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* На смартфонах пункты главного меню расположены вертикально. */
 .site-menu ul {
   display: flex;
   flex-direction: column;
@@ -36,21 +45,25 @@ main {
   gap: 2px;
 }
 
-.site-menu li {
+.site-menu li,
+.site-menu a {
   min-width: 0;
+  max-width: 100%;
 }
 
 .site-menu a {
   text-align: center;
 }
 
-/* Не допускаем выхода широких элементов за экран */
+/* Изображения не выходят за пределы экрана. */
 img {
   max-width: 100%;
   height: auto;
 }
 
+/* Широкая таблица прокручивается внутри своего контейнера. */
 .content-table-wrap {
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -75,14 +88,14 @@ textarea {
   width: 100%;
 }
 
-/* Mobile First: на небольшом экране таблица находится выше списка ссылок */
+/* Порядок отображения на телефоне: таблица, ссылки, форма.
+   Исходный HTML-порядок при этом не изменён. */
 #table-section {
   order: 1;
 }
 
 main > section[aria-labelledby="links-heading"] {
   order: 2;
-  min-width: 0;
   overflow-wrap: anywhere;
 }
 
@@ -90,12 +103,9 @@ main > section[aria-labelledby="links-heading"] {
   order: 3;
 }
 
-/* Планшеты и компьютеры */
+/* Планшеты и компьютеры: горизонтальное меню и прежняя компоновка.
+   Стили для широких экранов подключаются только после базовых мобильных. */
 @media (min-width: 601px) {
-  main {
-    gap: 1.5rem;
-  }
-
   .site-menu ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -103,7 +113,11 @@ main > section[aria-labelledby="links-heading"] {
     align-items: center;
   }
 
-  /* На широком экране сначала список ссылок, затем таблица */
+  .site-menu a {
+    text-align: center;
+  }
+
+  /* На широком экране ссылки отображаются перед таблицей. */
   main > section[aria-labelledby="links-heading"] {
     order: 1;
   }
