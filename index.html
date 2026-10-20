@@ -119,6 +119,17 @@
   }
   .site-footer p { margin: 5px 0; }
   .site-footer .container { max-width: 960px; margin: 0 auto; }
+  /* На компьютере меню располагается над шапкой; мобильная версия не меняется */
+  @media (min-width: 601px) {
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .site-menu { order: 1; }
+    header { order: 2; }
+    main { order: 3; width: 100%; box-sizing: border-box; }
+    .site-footer { order: 4; }
+  }
   @media (max-width: 600px) {
     header { padding: 18px 12px; }
     .header-inner { gap: 12px; justify-content: flex-start; }
