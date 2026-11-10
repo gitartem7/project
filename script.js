@@ -9,64 +9,6 @@ window.addEventListener('DOMContentLoaded', function () {
   var orderTotal = document.getElementById('order-total');
   var clearButton = document.getElementById('clear-order');
 
-  // Хранилище заказа: массив объектов { name, price, quantity }
-  var order = [];
-
-  function findProductIndex(name) {
-    var i;
-    for (i = 0; i < order.length; i += 1) {
-      if (order[i].name === name) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  function renderOrder() {
-    var total = 0;
-    var i;
-    var item;
-    var sum;
-    var row;
-    var cells;
-    var button;
-
-    orderBody.innerHTML = '';
-
-    for (i = 0; i < order.length; i += 1) {
-      item = order[i];
-      sum = item.price * item.quantity;
-      total += sum;
-
-      row = document.createElement('tr');
-
-      cells = [
-        item.name,
-        String(item.price),
-        String(item.quantity),
-        String(sum)
-      ];
-
-      cells.forEach(function (text) {
-        var td = document.createElement('td');
-        td.textContent = text;
-        row.appendChild(td);
-      });
-
-      var actionTd = document.createElement('td');
-      button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'btn btn-sm btn-outline-danger';
-      button.textContent = 'Удалить';
-      button.setAttribute('data-name', item.name);
-      actionTd.appendChild(button);
-      row.appendChild(actionTd);
-
-      orderBody.appendChild(row);
-    }
-
-    orderTotal.textContent = String(total);
-  }
 
   function onAdd(event) {
     event.preventDefault();
