@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spicy — лабораторная работа</title>
-  <meta name="description" content="Учебная страница с примерами гиперссылок и HTML-формы.">
+  <meta name="description" content="Учебная страница с гиперссылками, формой и калькулятором стоимости заказа.">
 
-  <!-- Bootstrap 4 -->
+  <!-- Bootstrap CSS (только стили, без JS-библиотек) -->
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!-- Собственные стили: только цвета/оформление, без сетки и отступов -->
+  <!-- Собственные стили -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Калькулятор: внешний файл, defer -->
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -26,6 +26,7 @@
         <li class="nav-item"><a class="nav-link" href="#table-section">Таблица</a></li>
         <li class="nav-item"><a class="nav-link" href="#links-heading">Ссылки</a></li>
         <li class="nav-item"><a class="nav-link" href="#form">Форма</a></li>
+        <li class="nav-item"><a class="nav-link" href="#calculator">Калькулятор</a></li>
       </ul>
     </div>
   </nav>
@@ -43,7 +44,6 @@
   </header>
 
   <!-- ================= MAIN ================= -->
-  <!-- d-flex flex-column — чтобы работали order-* -->
   <main class="container py-4 d-flex flex-column">
 
     <!-- Таблица: на мобильном order-1, на md+ order-2 -->
@@ -62,8 +62,10 @@
           </thead>
           <tbody>
             <tr><td>1</td><td>Гиперссылки</td><td>Переходы на внутренние и внешние страницы</td></tr>
-            <tr><td>2</td><td>Изображения</td><td>Изображение-ссылка и карта ссылок</td></tr>
+            <!-- Вторая строка объединена на все 3 столбца -->
+            <tr><td colspan="3">Изображения — изображение-ссылка и карта ссылок</td></tr>
             <tr><td>3</td><td>Форма</td><td>Поля для ввода данных пользователя</td></tr>
+            <tr><td>4</td><td>Калькулятор</td><td>Расчёт стоимости заказа</td></tr>
           </tbody>
         </table>
       </div>
@@ -115,7 +117,6 @@
                 </a>
               </div>
             </li>
-            <!-- Валидная замена href="": ссылка есть, но отключена -->
             <li><a href="#" aria-disabled="true" tabindex="-1">Ссылка с пустым href</a></li>
             <li><a>Ссылка без атрибута href</a></li>
             <li><a href="https://example.com/" rel="nofollow">Ссылка с rel="nofollow"</a></li>
@@ -138,7 +139,7 @@
       </div>
     </section>
 
-    <!-- Форма: order-3 на всех экранах -->
+    <!-- Форма: order-3 -->
     <section id="form" aria-labelledby="form-heading" class="order-3 mb-5">
       <h2 id="form-heading" class="h3 mb-3">Форма</h2>
 
@@ -252,6 +253,40 @@
 
         <div class="col-12">
           <button type="submit" class="btn btn-brand px-4">Сохранить</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ================= КАЛЬКУЛЯТОР (Задание 5) ================= -->
+    <section id="calculator" aria-labelledby="calc-heading" class="order-4 mb-5">
+      <h2 id="calc-heading" class="h3 mb-3">Калькулятор стоимости заказа</h2>
+
+      <form id="calc-form" class="row" novalidate>
+
+        <div class="form-group col-12 col-md-4">
+          <label for="product">Товар:</label>
+          <select id="product" name="product" class="form-control">
+            <option value="100">Чай — 100 ₽</option>
+            <option value="250">Кофе — 250 ₽</option>
+            <option value="400">Шоколад — 400 ₽</option>
+            <option value="700">Подарочный набор — 700 ₽</option>
+          </select>
+        </div>
+
+        <div class="form-group col-12 col-md-4">
+          <label for="quantity">Количество:</label>
+          <input type="text" id="quantity" name="quantity" class="form-control"
+                 inputmode="numeric" placeholder="Например: 3"
+                 aria-describedby="calc-error">
+        </div>
+
+        <div class="form-group col-12 col-md-4 d-flex align-items-end">
+          <button type="submit" id="calc-button" class="btn btn-brand px-4 mb-2">Подсчитать</button>
+        </div>
+
+        <div class="col-12">
+          <p id="calc-error" class="text-danger mb-2" role="alert" aria-live="polite"></p>
+          <p id="calc-result" class="h5 mb-0" aria-live="polite"></p>
         </div>
       </form>
     </section>
